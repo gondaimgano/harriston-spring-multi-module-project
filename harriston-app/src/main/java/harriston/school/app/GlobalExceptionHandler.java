@@ -17,19 +17,19 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handleStudentNotFoundException(DuplicateKeyException exception) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(Map.of("message", "This record already exists"));
+                .body(Map.of("message", "This record already exists."));
     }
     @ExceptionHandler({DataIntegrityViolationException.class})
     public ResponseEntity<Object> handleStudentNotFoundException(DataIntegrityViolationException exception) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(Map.of("message", "You tried to perform an operation that is invalid"));
+                .body(Map.of("message", "You tried to perform an operation that is invalid."));
     }
     @ExceptionHandler({RuntimeException.class})
     public ResponseEntity<Object> handleStudentNotFoundException(RuntimeException exception) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(Map.of("message", "Something went wrong :("));
+                .body(Map.of("message", "An internal error has occurred."));
     }
 
 
