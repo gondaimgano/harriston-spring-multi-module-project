@@ -23,7 +23,6 @@ public class AdminController {
         return ResponseEntity.ok(service.save(student));
     }
 
-
     @GetMapping("/student")
     ResponseEntity<List<ISave>> listAllStudent() {
         return ResponseEntity.ok(service.listAll(new Student()));
@@ -40,6 +39,29 @@ public class AdminController {
         student.setId(id);
         service.delete(student);
         return ResponseEntity.ok("Deleted "+student.getId());
+    }
+
+    @PostMapping("/subject")
+    ResponseEntity<ISave> save(@RequestBody Subject subject) {
+        return ResponseEntity.ok(service.save(subject));
+    }
+
+    @GetMapping("/subject")
+    ResponseEntity<List<ISave>> listAllSubject() {
+        return ResponseEntity.ok(service.listAll(new Subject()));
+    }
+    @GetMapping("/subject/{id}")
+    ResponseEntity<List<ISave>> listAllSubject(@PathVariable Long id) {
+        var subject = new Subject();
+        subject.setId(id);
+        return ResponseEntity.ok(service.listAll(subject));
+    }
+    @DeleteMapping("/subject/{id}")
+    ResponseEntity<String> deleteSubject(@PathVariable Long id) {
+        var subject = new Subject();
+        subject.setId(id);
+        service.delete(subject);
+        return ResponseEntity.ok("Deleted "+subject.getId());
     }
 
     @PostMapping("/user")
@@ -131,6 +153,10 @@ public class AdminController {
         return ResponseEntity.ok("Deleted ".concat(classroom.getId().toString()));
     }
 
+    @PostMapping("/parent")
+    ResponseEntity<ISave> save(@RequestBody Parent parent) {
+        return ResponseEntity.ok(service.save(parent));
+    }
     @GetMapping("/parent")
     ResponseEntity<List<ISave>> listAllParent() {
         return ResponseEntity.ok(service.listAll(new Parent()));

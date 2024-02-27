@@ -1,5 +1,6 @@
 package harriston.school.core.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +22,7 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "school_report_id")
+    @JsonBackReference // Add this annotation
     private SchoolReport schoolReport;
 
     // No-argument constructor required by JPA

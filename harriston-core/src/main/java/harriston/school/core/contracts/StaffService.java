@@ -13,6 +13,7 @@ public interface StaffService extends ParentService {
     Staff viewMyProfile(Long userId);
 
     SchoolReport create(SchoolReport report);
+    Long archive(Long report);
 
     List<SchoolReport> listReports(Long userId);
 

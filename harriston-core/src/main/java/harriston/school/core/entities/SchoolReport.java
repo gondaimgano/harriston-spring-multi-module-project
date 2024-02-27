@@ -2,6 +2,7 @@ package harriston.school.core.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,7 @@ public final class SchoolReport implements ISave {
     private Student student;
 
     @OneToMany(mappedBy = "schoolReport", cascade = CascadeType.ALL)
+    @JsonManagedReference // Add this annotation
     private List<Comment> comments;
 
     @Column(name = "overall_comment")

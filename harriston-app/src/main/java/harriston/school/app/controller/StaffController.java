@@ -35,13 +35,13 @@ public class StaffController extends ParentController{
     }
 
     @PostMapping("/report")
-    public ResponseEntity<SchoolReport> create(SchoolReport report) {
+    public ResponseEntity<SchoolReport> create(@RequestBody SchoolReport report) {
         return ResponseEntity.ok(staffService.create(report));
     }
 
-    @GetMapping("/report")
-    public ResponseEntity<List<SchoolReport>> listReports() {
-        return ResponseEntity.ok(staffService.listReports(12345L));
+    @GetMapping("/report/{teacherId}")
+    public ResponseEntity<List<SchoolReport>> listReports(@PathVariable Long teacherId) {
+        return ResponseEntity.ok(staffService.listReports(teacherId));
     }
 
 

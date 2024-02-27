@@ -49,10 +49,10 @@ public class SchoolCoreContractConfig {
     public StaffService staffContract(SchoolReportRepository schoolReportRepository,
                                       ParentRepository parentRepository,
                                       StaffRepository staffRepository,
-                                      SchoolUserRepository schoolUserRepository) {
+                                      SchoolUserRepository schoolUserRepository, CommentRepository commentRepository) {
         return new DefaultStaffService(schoolReportRepository,
                 parentRepository,
                 schoolUserRepository,
-                staffRepository);
+                staffRepository, commentRepository);
     }
 }
