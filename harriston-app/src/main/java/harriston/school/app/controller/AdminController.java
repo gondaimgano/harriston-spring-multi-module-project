@@ -27,18 +27,20 @@ public class AdminController {
     ResponseEntity<List<ISave>> listAllStudent() {
         return ResponseEntity.ok(service.listAll(new Student()));
     }
+
     @GetMapping("/student/{id}")
     ResponseEntity<List<ISave>> listAllStudent(@PathVariable Long id) {
         var student = new Student();
         student.setId(id);
         return ResponseEntity.ok(service.listAll(student));
     }
+
     @DeleteMapping("/student/{id}")
     ResponseEntity<String> deleteStudent(@PathVariable Long id) {
         var student = new Student();
         student.setId(id);
         service.delete(student);
-        return ResponseEntity.ok("Deleted "+student.getId());
+        return ResponseEntity.ok("Deleted " + student.getId());
     }
 
     @PostMapping("/subject")
@@ -50,34 +52,39 @@ public class AdminController {
     ResponseEntity<List<ISave>> listAllSubject() {
         return ResponseEntity.ok(service.listAll(new Subject()));
     }
+
     @GetMapping("/subject/{id}")
     ResponseEntity<List<ISave>> listAllSubject(@PathVariable Long id) {
         var subject = new Subject();
         subject.setId(id);
         return ResponseEntity.ok(service.listAll(subject));
     }
+
     @DeleteMapping("/subject/{id}")
     ResponseEntity<String> deleteSubject(@PathVariable Long id) {
         var subject = new Subject();
         subject.setId(id);
         service.delete(subject);
-        return ResponseEntity.ok("Deleted "+subject.getId());
+        return ResponseEntity.ok("Deleted " + subject.getId());
     }
 
     @PostMapping("/user")
     ResponseEntity<ISave> save(@RequestBody SchoolUser schoolUser) {
         return ResponseEntity.ok(service.save(schoolUser));
     }
+
     @GetMapping("/user")
     ResponseEntity<List<ISave>> listAllUser() {
         return ResponseEntity.ok(service.listAll(new SchoolUser()));
     }
+
     @GetMapping("/user/{id}")
     ResponseEntity<List<ISave>> listAllUser(@PathVariable Long id) {
         var schoolUser = new SchoolUser();
         schoolUser.setId(id);
         return ResponseEntity.ok(service.listAll(schoolUser));
     }
+
     @DeleteMapping("/user/{id}")
     ResponseEntity<String> deleteUser(@PathVariable Long id) {
         var schoolUser = new SchoolUser();
@@ -87,7 +94,9 @@ public class AdminController {
     }
 
     @PostMapping("/staff")
-    ResponseEntity<ISave> save(@RequestBody Staff staff) {
+    ResponseEntity<ISave> linkUserAndStaff(@RequestBody Staff staff) {
+        var item = (SchoolUser) service.save(staff.getUserDetails());
+        staff.setUserDetails(item);
         return ResponseEntity.ok(service.save(staff));
     }
 
@@ -95,12 +104,14 @@ public class AdminController {
     ResponseEntity<List<ISave>> listAllStaff() {
         return ResponseEntity.ok(service.listAll(new Staff()));
     }
+
     @GetMapping("/staff/{id}")
     ResponseEntity<List<ISave>> listAllStaff(@PathVariable Long id) {
         var staff = new Staff();
         staff.setId(id);
         return ResponseEntity.ok(service.listAll(staff));
     }
+
     @DeleteMapping("/staff/{id}")
     ResponseEntity<String> deleteStaff(@PathVariable Long id) {
         var staff = new Staff();
@@ -108,20 +119,24 @@ public class AdminController {
         service.delete(staff);
         return ResponseEntity.ok("Deleted ".concat(staff.getId().toString()));
     }
+
     @PostMapping("/occupation")
     ResponseEntity<ISave> save(@RequestBody Occupation occupation) {
         return ResponseEntity.ok(service.save(occupation));
     }
+
     @GetMapping("/occupation")
     ResponseEntity<List<ISave>> listAllOccupation() {
         return ResponseEntity.ok(service.listAll(new Occupation()));
     }
+
     @GetMapping("/occupation/{id}")
     ResponseEntity<List<ISave>> listAllOccupation(@PathVariable Long id) {
         var occupation = new Occupation();
         occupation.setId(id);
         return ResponseEntity.ok(service.listAll(occupation));
     }
+
     @DeleteMapping("/occupation/{id}")
     ResponseEntity<String> deleteOccupation(@PathVariable Long id) {
         var occupation = new Occupation();
@@ -129,10 +144,12 @@ public class AdminController {
         service.delete(occupation);
         return ResponseEntity.ok("Deleted ".concat(occupation.getId().toString()));
     }
+
     @PostMapping("/classroom")
     ResponseEntity<ISave> save(@RequestBody Classroom classroom) {
         return ResponseEntity.ok(service.save(classroom));
     }
+
     @GetMapping("/classroom")
     ResponseEntity<List<ISave>> listAllClassroom() {
         return ResponseEntity.ok(service.listAll(new Classroom()));
@@ -154,30 +171,37 @@ public class AdminController {
     }
 
     @PostMapping("/parent")
-    ResponseEntity<ISave> save(@RequestBody Parent parent) {
+    ResponseEntity<ISave> linkUserAndParent(@RequestBody Parent parent) {
+        var item = (SchoolUser) service.save(parent.getSchoolUser());
+        parent.setSchoolUser(item);
         return ResponseEntity.ok(service.save(parent));
     }
+
     @GetMapping("/parent")
     ResponseEntity<List<ISave>> listAllParent() {
         return ResponseEntity.ok(service.listAll(new Parent()));
     }
+
     @GetMapping("/parent/{id}")
     ResponseEntity<List<ISave>> listAllParent(@PathVariable Long id) {
         var parent = new Parent();
         parent.setId(id);
         return ResponseEntity.ok(service.listAll(parent));
     }
+
     @DeleteMapping("/parent/{id}")
     ResponseEntity<String> deleteParent(@PathVariable Long id) {
         var parent = new Parent();
         parent.setId(id);
         service.delete(parent);
-        return ResponseEntity.ok("Delete "+parent.getId());
+        return ResponseEntity.ok("Delete " + parent.getId());
     }
+
     @PostMapping("/school-position")
     ResponseEntity<ISave> save(@RequestBody SchoolPosition schoolPosition) {
         return ResponseEntity.ok(service.save(schoolPosition));
     }
+
     @GetMapping("/school-position")
     ResponseEntity<List<ISave>> listAllSchoolPosition() {
         return ResponseEntity.ok(service.listAll(new SchoolPosition()));
@@ -189,11 +213,12 @@ public class AdminController {
         parent.setId(id);
         return ResponseEntity.ok(service.listAll(parent));
     }
+
     @DeleteMapping("/school-position/{id}")
     ResponseEntity<String> deleteSchoolPosition(@PathVariable Long id) {
         var parent = new SchoolPosition();
         parent.setId(id);
         service.delete(parent);
-        return ResponseEntity.ok("Delete "+parent.getId());
+        return ResponseEntity.ok("Delete " + parent.getId());
     }
 }

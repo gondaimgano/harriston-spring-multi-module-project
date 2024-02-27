@@ -36,9 +36,16 @@ public final class Parent implements ISave {
     )
     private List<Student> students;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "parent_user",
+            joinColumns = @JoinColumn(name = "parent_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private SchoolUser schoolUser;
+
     // No-argument constructor required by JPA
-    public Parent() {
-    }
+    public Parent() {}
 
     // Constructor with fields
     public Parent(Long id, String firstName, String lastName, Date dob, Occupation occupation, List<Student> students) {
@@ -97,6 +104,14 @@ public final class Parent implements ISave {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public SchoolUser getSchoolUser() {
+        return schoolUser;
+    }
+
+    public void setSchoolUser(SchoolUser schoolUser) {
+        this.schoolUser = schoolUser;
     }
 }
 

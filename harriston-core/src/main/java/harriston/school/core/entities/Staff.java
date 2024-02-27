@@ -39,8 +39,12 @@ public final class Staff implements ISave {
     )
     private List<Classroom> classrooms;
 
-    @OneToOne
-    @JoinColumn(name = "user_details_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "staff_user",
+            joinColumns = @JoinColumn(name = "staff_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
     private SchoolUser schoolUserDetails;
 
     // No-argument constructor required by JPA
