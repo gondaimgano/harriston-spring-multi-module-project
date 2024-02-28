@@ -47,7 +47,7 @@ public class DefaultAdminService implements AdminService {
     }
 
     @Override
-    public AdminService saveWith(ISave item, Consumer<ISave> then) {
+    public AdminService saveThen(ISave item, Consumer<ISave> then) {
        var result = save(item);
         then.accept(result);
         return this;
