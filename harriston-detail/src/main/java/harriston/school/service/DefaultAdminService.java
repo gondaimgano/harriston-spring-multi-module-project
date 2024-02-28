@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class DefaultAdminService implements AdminService {
-
     private final SchoolPositionRepository schoolPositionRepository;
     private final OccupationRepository occupationRepository;
     private final ClassroomRepository classroomRepository;
@@ -22,6 +21,7 @@ public class DefaultAdminService implements AdminService {
     private final SubjectRepository subjectRepository;
     private final SchoolReportRepository schoolReportRepository;
     private final SchoolUserRepository schoolUserRepository;
+    private final  CommentRepository commentRepository;
     public DefaultAdminService(SchoolPositionRepository schoolPositionRepository,
                                OccupationRepository occupationRepository,
                                ClassroomRepository classroomRepository,
@@ -30,7 +30,8 @@ public class DefaultAdminService implements AdminService {
                                StudentRepository studentRepository,
                                SubjectRepository subjectRepository,
                                SchoolReportRepository schoolReportRepository,
-                               SchoolUserRepository schoolUserRepository) {
+                               SchoolUserRepository schoolUserRepository,
+                               CommentRepository commentRepository) {
         this.schoolPositionRepository = schoolPositionRepository;
         this.occupationRepository = occupationRepository;
         this.classroomRepository = classroomRepository;
@@ -40,6 +41,7 @@ public class DefaultAdminService implements AdminService {
         this.subjectRepository = subjectRepository;
         this.schoolReportRepository = schoolReportRepository;
         this.schoolUserRepository = schoolUserRepository;
+        this.commentRepository = commentRepository;
     }
 
     @Override
@@ -54,6 +56,7 @@ public class DefaultAdminService implements AdminService {
             case Occupation occupation -> occupationRepository.save(occupation);
             case SchoolUser schoolUser -> schoolUserRepository.save(schoolUser);
             case SchoolPosition schoolPosition -> schoolPositionRepository.save(schoolPosition);
+            case Comment comment -> commentRepository.save(comment);
         };
     }
 
@@ -69,6 +72,7 @@ public class DefaultAdminService implements AdminService {
             case Occupation occupation -> findAll(occupationRepository, occupation.getId());
             case SchoolUser schoolUser -> findAll(schoolUserRepository, schoolUser.getId());
             case SchoolPosition schoolPosition -> findAll(schoolPositionRepository, schoolPosition.getId());
+            case Comment comment -> findAll(commentRepository, comment.getId());
         };
     }
 
@@ -92,6 +96,7 @@ public class DefaultAdminService implements AdminService {
             case Occupation occupation -> deleteById(occupationRepository, occupation.getId());
             case SchoolUser schoolUser -> deleteById(schoolUserRepository, schoolUser.getId());
             case SchoolPosition schoolPosition -> deleteById(schoolPositionRepository, schoolPosition.getId());
+            case Comment comment -> deleteById(commentRepository, comment.getId());
         };
 
     }

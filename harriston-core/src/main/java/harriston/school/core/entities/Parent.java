@@ -2,12 +2,18 @@ package harriston.school.core.entities;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.Date;
 import java.util.List;
 
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public final class Parent implements ISave {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,74 +50,6 @@ public final class Parent implements ISave {
     )
     private SchoolUser schoolUser;
 
-    // No-argument constructor required by JPA
-    public Parent() {}
 
-    // Constructor with fields
-    public Parent(Long id, String firstName, String lastName, Date dob, Occupation occupation, List<Student> students) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dob = dob;
-        this.occupation = occupation;
-        this.students = students;
-    }
-
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public Occupation getOccupation() {
-        return occupation;
-    }
-
-    public void setOccupation(Occupation occupation) {
-        this.occupation = occupation;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
-
-    public SchoolUser getSchoolUser() {
-        return schoolUser;
-    }
-
-    public void setSchoolUser(SchoolUser schoolUser) {
-        this.schoolUser = schoolUser;
-    }
 }
 

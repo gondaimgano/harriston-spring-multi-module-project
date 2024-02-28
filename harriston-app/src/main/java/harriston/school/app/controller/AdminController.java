@@ -95,8 +95,8 @@ public class AdminController {
 
     @PostMapping("/staff")
     ResponseEntity<ISave> linkUserAndStaff(@RequestBody Staff staff) {
-        var item = (SchoolUser) service.save(staff.getUserDetails());
-        staff.setUserDetails(item);
+        var item = (SchoolUser) service.save(staff.getSchoolUserDetails());
+        staff.setSchoolUserDetails(item);
         return ResponseEntity.ok(service.save(staff));
     }
 

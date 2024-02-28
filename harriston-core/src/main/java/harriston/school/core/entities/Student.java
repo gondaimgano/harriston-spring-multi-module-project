@@ -4,8 +4,14 @@ package harriston.school.core.entities;
 import java.sql.Date;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public final class Student implements ISave {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,59 +30,5 @@ public final class Student implements ISave {
     @ManyToOne
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
-
-    // No-argument constructor required by JPA
-    public Student() {
-    }
-
-    // Constructor with fields
-    public Student(Long id, String firstname, String surname, Date dob, Classroom classroom) {
-        this.id = id;
-        this.firstname = firstname;
-        this.surname = surname;
-        this.dob = dob;
-        this.classroom = classroom;
-    }
-
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public Classroom getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(Classroom classroom) {
-        this.classroom = classroom;
-    }
 }
 

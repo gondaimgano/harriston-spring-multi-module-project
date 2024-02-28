@@ -2,8 +2,14 @@ package harriston.school.core.entities;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public final class Subject implements ISave {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,32 +18,5 @@ public final class Subject implements ISave {
 
     @Column(nullable = false)
     private String title;
-
-    // No-argument constructor required by JPA
-    public Subject() {
-    }
-
-    // Constructor with fields
-    public Subject(Long id, String title) {
-        this.id = id;
-        this.title = title;
-    }
-
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }
 

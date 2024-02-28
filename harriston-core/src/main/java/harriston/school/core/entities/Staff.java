@@ -1,11 +1,17 @@
 package harriston.school.core.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public final class Staff implements ISave {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,94 +53,5 @@ public final class Staff implements ISave {
     )
     private SchoolUser schoolUserDetails;
 
-    // No-argument constructor required by JPA
-    public Staff() {
-    }
-
-    // Constructor with fields
-    public Staff(Long id, String firstName, String surname, Date dob, SchoolPosition position, Boolean isHOD, List<Subject> teachSubjects, List<Classroom> classrooms, SchoolUser schoolUserDetails) {
-        this.id = id;
-        this.firstName = firstName;
-        this.surname = surname;
-        this.dob = dob;
-        this.position = position;
-        this.isHOD = isHOD;
-        this.teachSubjects = teachSubjects;
-        this.classrooms = classrooms;
-        this.schoolUserDetails = schoolUserDetails;
-    }
-
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public SchoolPosition getPosition() {
-        return position;
-    }
-
-    public void setPosition(SchoolPosition position) {
-        this.position = position;
-    }
-
-    public Boolean getHOD() {
-        return isHOD;
-    }
-
-    public void setHOD(Boolean HOD) {
-        isHOD = HOD;
-    }
-
-    public List<Subject> getTeachSubjects() {
-        return teachSubjects;
-    }
-
-    public void setTeachSubjects(List<Subject> teachSubjects) {
-        this.teachSubjects = teachSubjects;
-    }
-
-    public List<Classroom> getClassrooms() {
-        return classrooms;
-    }
-
-    public void setClassrooms(List<Classroom> classrooms) {
-        this.classrooms = classrooms;
-    }
-
-    public SchoolUser getUserDetails() {
-        return schoolUserDetails;
-    }
-
-    public void setUserDetails(SchoolUser schoolUserDetails) {
-        this.schoolUserDetails = schoolUserDetails;
-    }
 }
 

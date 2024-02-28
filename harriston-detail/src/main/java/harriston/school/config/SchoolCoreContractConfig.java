@@ -22,7 +22,8 @@ public class SchoolCoreContractConfig {
                                       StudentRepository studentRepository,
                                       SubjectRepository subjectRepository,
                                       SchoolReportRepository schoolReportRepository,
-                                      SchoolUserRepository schoolUserRepository) {
+                                      SchoolUserRepository schoolUserRepository,
+                                      CommentRepository commentRepository) {
         return new DefaultAdminService(schoolPositionRepository,
                 occupationRepository,
                 classroomRepository,
@@ -31,8 +32,8 @@ public class SchoolCoreContractConfig {
                 studentRepository,
                 subjectRepository,
                 schoolReportRepository,
-                schoolUserRepository
-        );
+                schoolUserRepository,
+                commentRepository);
     }
 
     @Bean
