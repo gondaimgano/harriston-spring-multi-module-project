@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,6 +44,13 @@ public class DefaultAdminService implements AdminService {
         this.schoolReportRepository = schoolReportRepository;
         this.schoolUserRepository = schoolUserRepository;
         this.commentRepository = commentRepository;
+    }
+
+    @Override
+    public AdminService saveWith(ISave item, Consumer<ISave> then) {
+       var result = save(item);
+        then.accept(result);
+        return this;
     }
 
     @Override

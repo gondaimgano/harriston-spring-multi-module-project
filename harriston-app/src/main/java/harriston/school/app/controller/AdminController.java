@@ -95,9 +95,9 @@ public class AdminController {
 
     @PostMapping("/staff")
     ResponseEntity<ISave> linkUserAndStaff(@RequestBody Staff staff) {
-        var item = (SchoolUser) service.save(staff.getSchoolUserDetails());
-        staff.setSchoolUserDetails(item);
-        return ResponseEntity.ok(service.save(staff));
+        var item = service.saveWith(staff.getSchoolUserDetails(),
+                (result) -> staff.setSchoolUserDetails((SchoolUser) result)).save(staff);
+        return ResponseEntity.ok(item);
     }
 
     @GetMapping("/staff")
@@ -172,9 +172,9 @@ public class AdminController {
 
     @PostMapping("/parent")
     ResponseEntity<ISave> linkUserAndParent(@RequestBody Parent parent) {
-        var item = (SchoolUser) service.save(parent.getSchoolUser());
-        parent.setSchoolUser(item);
-        return ResponseEntity.ok(service.save(parent));
+        return ResponseEntity.ok(service.saveWith(parent.getSchoolUser(),
+                        (result) -> parent.setSchoolUser((SchoolUser) result))
+                .save(parent));
     }
 
     @GetMapping("/parent")
