@@ -23,7 +23,7 @@ public final class SchoolReport implements ISave {
     private Student student;
 
     @OneToMany(mappedBy = "schoolReport", cascade = CascadeType.ALL)
-    @JsonManagedReference // Add this annotation
+    @JsonManagedReference // Add this annotation to circuit break cyclic dependency
     private List<Comment> comments;
 
     @Column(name = "overall_comment")

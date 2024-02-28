@@ -28,7 +28,7 @@ public final class Comment implements ISave {
 
     @ManyToOne
     @JoinColumn(name = "school_report_id")
-    @JsonBackReference // Add this annotation
+    @JsonBackReference // Add this annotation for cyclic dependency
     private SchoolReport schoolReport;
 
 }

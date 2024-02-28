@@ -28,7 +28,7 @@ public class ParentController {
         return ResponseEntity.ok(parentService.viewAllReports(parentId));
     }
 
-    @GetMapping("/view/child/all/{parent}")
+    @GetMapping("/view/child/all/{parentId}")
     public List<Student> viewYourChildrenProfile(@PathVariable Long parentId) {
         return parentService.viewYourChildrenProfile(parentId);
     }
