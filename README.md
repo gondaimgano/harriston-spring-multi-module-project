@@ -1,7 +1,7 @@
 # Gondai School Management System
 
 ## Overview
-School Management System is a multi-module project aimed at providing a comprehensive solution for managing various aspects of a school, including student information, staff details, parent-teacher communication, and more.
+School Management System is a Spring multi-module project aimed at providing a comprehensive solution for managing various aspects of a school, including student information, staff details, school reports and more.
 
 ## Module Relationships
 
