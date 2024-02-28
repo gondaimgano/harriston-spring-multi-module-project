@@ -39,7 +39,7 @@ The harriston-core module serves as the core of the application, containing shar
 - Swagger
 
 ## Setup Instructions
-1. Clone the repository: `git clone https://github.com/yourusername/harriston-school.git`
+1. Clone the repository: `git clone https://github.com/gondaimgano/harriston-school.git`
 2. Navigate to the project directory: `cd harriston-school`
 3. Build the project: `mvn clean install`
 4. Run the application: `java -jar harriston-app/target/harriston-app-1.0.1-DOGFOOD.jar`
