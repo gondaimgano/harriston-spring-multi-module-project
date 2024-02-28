@@ -21,7 +21,7 @@ graph TD;
 This module contains the main application logic and is responsible for handling HTTP requests, managing controllers, and serving as the entry point for the application.
 
 ### 2. harriston-detail
-The harriston-detail module focuses on providing detailed information about students, staff, parents, and other entities within the school system. It includes services and components for retrieving and displaying detailed data.
+The harriston-detail module focuses on providing implementation on the contracts/interfaces defined in harriston-core. It includes services and components for retrieving and displaying detailed data.
 
 ### 3. harriston-repository
 The harriston-repository module acts as a data access layer, providing interfaces and implementations for interacting with various data sources such as databases, external APIs, or file systems. It encapsulates the logic for storing and retrieving data.
