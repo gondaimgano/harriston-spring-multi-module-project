@@ -36,12 +36,14 @@ The harriston-core module serves as the core of the application, containing shar
 - Lombok
 - H2 in-memory database (for getting started quickly)
 - Maven
+- Swagger
 
 ## Setup Instructions
 1. Clone the repository: `git clone https://github.com/yourusername/harriston-school.git`
 2. Navigate to the project directory: `cd harriston-school`
 3. Build the project: `mvn clean install`
-4. Run the application: `java -jar harriston-app/target/harriston-app.jar`
+4. Run the application: `java -jar harriston-app/target/harriston-app-1.0.1-DOGFOOD.jar`
+5. To access the apis `http://localhost:9000/v1/swagger-ui`
 
 
 ## Usage
