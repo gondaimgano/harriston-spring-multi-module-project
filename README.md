@@ -62,6 +62,7 @@ The harriston-repository module acts as a data access layer, providing interface
 - Swagger
 
 ## `Setup Instructions`
+Please make sure to have installed `Docker` on your machine
 1. Clone the repository: `git clone https://github.com/gondaimgano/harriston-school.git`
 2. Navigate to the project directory: `cd harriston-school`
 3. Build the project: `mvn clean install`
