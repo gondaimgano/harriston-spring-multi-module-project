@@ -42,6 +42,8 @@ class ParentService
 <<interface>> ParentService
 ParentService : viewAllReports(parentId) List~SchoolReport~
 ParentService : viewYourChildrenProfile(parentId) List~Student~
+
+ParentService --|> StaffService
 ```
 
 ### 3. `harriston-detail`
