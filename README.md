@@ -57,7 +57,7 @@ The harriston-repository module acts as a data access layer, providing interface
 - Spring Boot Web
 - Spring Data JPA
 - Lombok
-- H2 in-memory database (for getting started quickly)
+- Postgres DB + Spring Docker compose 
 - Maven
 - Swagger
 
