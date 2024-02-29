@@ -28,20 +28,20 @@ They are 3 major contracts or interfaces in this module which make up the whole 
 classDiagram
 class AdminService
 <<interface>> AdminService
-AdminService : +saveThen(ISave item, Consumer~ISave~ then) AdminService
-AdminService : +save(ISave item) ISave
+AdminService : saveThen(ISave item, Consumer~ISave~ then) AdminService
+AdminService : save(ISave item) ISave
 AdminService : listAll(ISave type) List~ISave~
 
 class StaffService
 <<interface>> StaffService
-StaffService : +manageCredentials(schoolUser) SchoolUser
-StaffService : +viewMyProfile(userId) Staff
-StaffService : +create(report) SchoolReport
+StaffService : manageCredentials(schoolUser) SchoolUser
+StaffService : viewMyProfile(userId) Staff
+StaffService : create(report) SchoolReport
 
 class ParentService
 <<interface>> ParentService
-ParentService : +viewAllReports(parentId) List~SchoolReport~
-ParentService : +viewYourChildrenProfile(parentId) List~Student~
+ParentService : viewAllReports(parentId) List~SchoolReport~
+ParentService : viewYourChildrenProfile(parentId) List~Student~
 ```
 
 ### 3. `harriston-detail`
