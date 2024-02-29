@@ -20,14 +20,35 @@ graph TD;
 ### 1. `harriston-app`
 This module contains the main application logic and is responsible for handling HTTP requests, managing controllers, and serving as the entry point for the application.
 
-### 2. `harriston-detail`
+### 2. `harriston-core`
+The harriston-core module serves as the core of the application, containing shared functionality, utility classes, and domain entities that are used across different parts of the system. It defines the fundamental building blocks of the application architecture.
+They are 3 major contracts or interfaces in this module which make up the whole API:
+
+```mermaid
+classDiagram
+class AdminService
+<<interface>> AdminService
+AdminService : +saveThen(ISave item, Consumer~ISave~ then) AdminService
+AdminService : +save(ISave item) ISave
+AdminService : listAll(ISave type) List~ISave~
+
+class StaffService
+<<interface>> StaffService
+StaffService : +manageCredentials(schoolUser) SchoolUser
+StaffService : +viewMyProfile(userId) Staff
+StaffService : +create(report) SchoolReport
+
+class ParentService
+<<interface>> ParentService
+ParentService : +viewAllReports(parentId) List~SchoolReport~
+ParentService : +viewYourChildrenProfile(parentId) List~Student~
+```
+
+### 3. `harriston-detail`
 The harriston-detail module focuses on providing implementation on the contracts/interfaces defined in harriston-core. It includes services and components for retrieving and displaying detailed data.
 
-### 3. `harriston-repository`
+### 4. `harriston-repository`
 The harriston-repository module acts as a data access layer, providing interfaces and implementations for interacting with various data sources such as databases, external APIs, or file systems. It encapsulates the logic for storing and retrieving data.
-
-### 4. `harriston-core`
-The harriston-core module serves as the core of the application, containing shared functionality, utility classes, and domain entities that are used across different parts of the system. It defines the fundamental building blocks of the application architecture.
 
 ## `Technologies Used`
 - Java 21  (enabled virtual threads)
