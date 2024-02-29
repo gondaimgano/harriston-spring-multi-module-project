@@ -45,7 +45,7 @@ ParentService : +viewYourChildrenProfile(parentId) List~Student~
 ```
 
 ### 3. `harriston-detail`
-The harriston-detail module focuses on providing implementation on the contracts/interfaces defined in harriston-core. It includes services and components for retrieving and displaying detailed data.
+The harriston-detail module focuses on providing implementation on the contracts/interfaces defined in harriston-core. These implementations will be injected into our `controllers` at runtime.
 
 ### 4. `harriston-repository`
 The harriston-repository module acts as a data access layer, providing interfaces and implementations for interacting with various data sources such as databases, external APIs, or file systems. It encapsulates the logic for storing and retrieving data.
