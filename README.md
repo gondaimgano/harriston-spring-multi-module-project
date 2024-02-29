@@ -30,7 +30,7 @@ The harriston-repository module acts as a data access layer, providing interface
 The harriston-core module serves as the core of the application, containing shared functionality, utility classes, and domain entities that are used across different parts of the system. It defines the fundamental building blocks of the application architecture.
 
 ## `Technologies Used`
-- Java 21
+- Java 21  (enabled virtual threads)
 - Spring Boot Web
 - Spring Data JPA
 - Lombok
